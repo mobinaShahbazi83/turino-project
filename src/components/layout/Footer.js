@@ -27,6 +27,7 @@ function Footer() {
       </div>
       <div className={styles.logo}>
         <img src="/images/Combined-Shape.png" className={styles.img} />
+        <img src="/images/code.png" className={styles.img} />
         <img src="/images/ecunion-35c3c933.png" className={styles.img} />
         <img src="/images/samandehi-6e2b448a.png" className={styles.img} />
         <img src="/images/aira-682b7c43.png" className={styles.img} />
