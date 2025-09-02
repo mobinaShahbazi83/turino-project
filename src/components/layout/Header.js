@@ -3,7 +3,7 @@ import { IoPerson } from "react-icons/io5";
 
 function Header() {
   return (
-    <header className="  h-[74px] flex justify-between items-center">
+    <header className="  h-[74px] flex justify-between items-center  border-b border-[#00000029]">
       <div className="flex items-center gap-25">
         <img src="/images/Torino.png" className=" mt-6" />
          <ul className="flex items-center gap-10">
