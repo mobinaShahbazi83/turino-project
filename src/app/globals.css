@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
-* {
-  margin: 0%;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
   font-weight: 200;
 }
 
-html,
-body {
-  max-width: 1200px;
-  overflow-x: hidden;
-  margin: auto;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
