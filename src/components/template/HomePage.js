@@ -1,8 +1,67 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { RiEarthFill } from "react-icons/ri";
 import { FaCalendarAlt } from "react-icons/fa";
+import Card from "@/module/Card";
 
 function HomePage() {
+  const tours = [
+    {
+      id: 1,
+      title: "اردبیل",
+      image: "/images/arbil.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 17500000,
+    },
+    {
+      id: 2,
+      title: "سلمانیه",
+      image: "/images/salmanie.png",
+      discription: "مهر ماه . 6 روزه - پرواز - هتل 5 س...",
+      price: 27500000,
+    },
+    {
+      id: 3,
+      title: "تور مادرید",
+      image: "/images/madrid.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 34000000,
+    },
+    {
+      id: 4,
+      title: "تور دبی",
+      image: "/images/dubia.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 7500000,
+    },
+    {
+      id: 5,
+      title: "تور کیش",
+      image: "/images/kish.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 7500000,
+    },
+    {
+      id: 6,
+      title: "تور ایتالیا",
+      image: "/images/italy.png",
+      discription: "مهر ماه . 6 روزه - پرواز - هتل 5 س...",
+      price: 27500000,
+    },
+    {
+      id: 7,
+      title: "تور آفرود",
+      image: "/images/afrod.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 34000000,
+    },
+    {
+      id: 8,
+      title: "تور مازندران",
+      image: "/images/mazandaran.png",
+      discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
+      price: 500000,
+    },
+  ];
   return (
     <div>
       <img src="/images/Untitle.png" />
@@ -36,6 +95,12 @@ function HomePage() {
             جستجو
           </button>
         </div>
+      </div>
+      <h1>همه تورها</h1>
+      <div>
+        {tours.map((tour) => (
+          <Card key={tour.id}  {...tour}/>
+        ))}
       </div>
     </div>
   );
