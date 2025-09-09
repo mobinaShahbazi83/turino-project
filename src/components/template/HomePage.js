@@ -7,7 +7,7 @@ function HomePage() {
   const tours = [
     {
       id: 1,
-      title: "اردبیل",
+      title: "اربیل",
       image: "/images/arbil.png",
       discription: "مهر ماه . 3 روزه - پرواز - هتل 3 س...",
       price: 17500000,
@@ -67,9 +67,9 @@ function HomePage() {
       <img src="/images/Untitle.png" />
       <p className="  text-2xl flex justify-center !mt-6  font-normal ">
         <span className="!text-[#28A745] mx-2 "> تورینو </span>
-        برگذار کننده بهترین تور های داخلی و خارجی
+        برگذار کننده  بهترین  تور های  داخلی  و  خارجی
       </p>
-      <div className="flex justify-between items-center mt-8 border border-[#00000029] rounded-xl !px-2 !py-4 gap-2 w-[750px] h-[67px] m-auto ">
+      <div className="flex justify-between items-center mt-8 border border-[#00000027] rounded-xl !px-2 !py-4 gap-2 w-[750px] h-[67px] m-auto ">
         <div className="flex gap-0.5">
           <FaLocationDot className="mt-2 mb-2" />
           <select className=" appearance-none">
@@ -96,8 +96,8 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <h1>همه تورها</h1>
-      <div>
+      <h1 className="font-light  text-3xl mt-20 mr-10">همه تور ها</h1>
+      <div className="grid grid-cols-4 w-[1200px] m-auto ">
         {tours.map((tour) => (
           <Card key={tour.id}  {...tour}/>
         ))}
