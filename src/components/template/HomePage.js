@@ -1,7 +1,10 @@
+"use client"
 import { FaLocationDot } from "react-icons/fa6";
 import { RiEarthFill } from "react-icons/ri";
 import { FaCalendarAlt } from "react-icons/fa";
 import Card from "@/module/Card";
+import { FaQuestionCircle } from "react-icons/fa";
+import Slider from "@/module/Slider";
 
 function HomePage() {
   const tours = [
@@ -67,7 +70,7 @@ function HomePage() {
       <img src="/images/Untitle.png" />
       <p className="  text-2xl flex justify-center !mt-6  font-normal ">
         <span className="!text-[#28A745] mx-2 "> تورینو </span>
-        برگذار کننده  بهترین  تور های  داخلی  و  خارجی
+        برگذار کننده بهترین تور های داخلی و خارجی
       </p>
       <div className="flex justify-between items-center mt-8 border border-[#00000027] rounded-xl !px-2 !py-4 gap-2 w-[750px] h-[67px] m-auto ">
         <div className="flex gap-0.5">
@@ -96,11 +99,37 @@ function HomePage() {
           </button>
         </div>
       </div>
-      <h1 className="font-light  text-3xl mt-20 mr-10">همه تور ها</h1>
+      <h1 className="font-light  text-3xl mt-20 mr-30">همه تور ها</h1>
       <div className="grid grid-cols-4 w-[1200px] m-auto ">
         {tours.map((tour) => (
-          <Card key={tour.id}  {...tour}/>
+          <Card key={tour.id} {...tour} />
         ))}
+      </div>
+      <div className="w-[1200px] h-[300px] rounded-lg mt-30 m-auto">
+        <img src="/images/call.png" />
+      </div>
+      <div className="flex border-b border-[#00000029]">
+        <div className="mt-17 mr-10 mb-35">
+          <div className="flex">
+            <FaQuestionCircle className="text-[#28A745] w-[59px] h-[68px] " />
+            <p className="w-[179px] h-[62px] font-light text-3xl mt-5.5 mr-2">
+              چرا <span className="text-[#28A745]"> تورینو</span> ؟
+            </p>
+          </div>
+          <h4 className="font-light text-[24px] mt-2 ">
+            تور طبیعت گردی و تاریخی
+          </h4>
+          <p className="font-extralight w-[400px] h-[50px] leading-[220.00000000000003%] mt-3">
+            اگر دوست داشته باشید که یک جاذبه طبیعی را از نزدیک ببینید و در دل
+            طبیعت چادر بزنید یا در یک اقامتگاه بوم گردی اتاق بگیرید، باید تورهای
+            طبیعت‌گردی را خریداری کنید. اما اگر بخواهید از جاذبه‌های گردشگری و
+            آثار تاریخی یک مقصد خاص بازدید کنید، می‌توانید تورهای فرهنگی و
+            تاریخی را خریداری کنید.
+          </p>
+        </div>
+        <div>
+          {/* <Slider/> */}
+        </div>
       </div>
     </div>
   );
