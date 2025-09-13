@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FaLocationDot } from "react-icons/fa6";
 import { RiEarthFill } from "react-icons/ri";
 import { FaCalendarAlt } from "react-icons/fa";
@@ -108,8 +108,8 @@ function HomePage() {
       <div className="w-[1200px] h-[300px] rounded-lg mt-30 m-auto">
         <img src="/images/call.png" />
       </div>
-      <div className="flex border-b border-[#00000029]">
-        <div className="mt-17 mr-10 mb-35">
+      <div className="flex  mt-20 w-[300px] h-[200px]">
+        <div className="mt-5 mr-30 mb-50">
           <div className="flex">
             <FaQuestionCircle className="text-[#28A745] w-[59px] h-[68px] " />
             <p className="w-[179px] h-[62px] font-light text-3xl mt-5.5 mr-2">
@@ -127,8 +127,48 @@ function HomePage() {
             تاریخی را خریداری کنید.
           </p>
         </div>
-        <div>
-          {/* <Slider/> */}
+        <div>{/* <Slider/> */}</div>
+      </div>
+      <div
+        className="flex flex-col md:flex-row justify-between items-center gap-6 mt-50  h-[100px] " dir="rtl">
+        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+          <img
+            src="/images/prsent.png"
+            className="w-[95px] h-[95px]"
+            alt="صرفه ترین قیمت"
+          />
+          <div className="text-right">
+            <h2 className="font-normal text-xl">بصرفه ترین قیمت</h2>
+            <p className="font-light text-base ">
+              بصرفه ترین و ارزان ترین قیمت تور را از ما بخواهید.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+          <img
+            src="/images/message.png"
+            className="w-[95px] h-[95px]"
+            alt="پشتیبانی 24 ساعته"
+          />
+          <div className="text-right">
+            <h2 className="font-normal text-xl">پشتیبانی</h2>
+            <p className="font-light text-base ">
+              پشتیبانی و همراهی 24 ساعته در تمامی مراحل سفر شما.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+          <img
+            src="/images/hart.png"
+            className="w-[95px] h-[95px]"
+            alt="رضایت کاربران"
+          />
+          <div className="text-right">
+            <h2 className="font-normal text-xl ">رضایت کاربران</h2>
+            <p className="font-light text-base ">
+              رضایت بیش از 10هزار کاربر از تور های ما.
+            </p>
+          </div>
         </div>
       </div>
     </div>
