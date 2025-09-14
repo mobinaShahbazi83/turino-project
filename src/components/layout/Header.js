@@ -1,5 +1,6 @@
 "use client"
-import LoginPage from "@/module/LoginPage";
+import SendOtpForm from "@/module/SendOtpForm";
+
 import Link from "next/link";
 import { useState } from "react";
 import { IoPerson } from "react-icons/io5";
@@ -37,9 +38,9 @@ function Header() {
           <IoPerson className="!mt-1" />
           ورود
         </button>
-        |<Link href="/register">ثبت نام</Link>
+        |<button>ثبت نام</button>
       </div>
-      {!! showlogin && <LoginPage showlogin={showlogin} setShowLogin={setShowLogin}/>}
+      {!! showlogin && <SendOtpForm showlogin={showlogin} setShowLogin={setShowLogin}/>}
     </header>
   );
 }
