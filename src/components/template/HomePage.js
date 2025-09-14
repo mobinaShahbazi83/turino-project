@@ -6,6 +6,8 @@ import Card from "@/module/Card";
 import { FaQuestionCircle } from "react-icons/fa";
 import Slider from "@/module/Slider";
 
+
+
 function HomePage() {
   const tours = [
     {
@@ -130,7 +132,9 @@ function HomePage() {
         <div>{/* <Slider/> */}</div>
       </div>
       <div
-        className="flex flex-col md:flex-row justify-between items-center gap-6 mt-50  h-[100px] " dir="rtl">
+        className="flex flex-col md:flex-row justify-between items-center gap-6 mt-50  h-[100px] "
+        dir="rtl"
+      >
         <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
           <img
             src="/images/prsent.png"
