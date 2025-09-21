@@ -1,5 +1,6 @@
 "use client"
-import SendOtpForm from "@/module/SendOtpForm";
+import AuthModal from "@/module/AuthModal";
+
 
 import Link from "next/link";
 import { useState } from "react";
@@ -12,9 +13,9 @@ function Header() {
         setShowLogin(true)
        }
   return (
-    <header className="  h-[74px] flex justify-between items-center  border-b border-[#00000029]">
+    <header className="max-w-[1200px] mx-auto  h-[74px] flex justify-between items-center  border-b border-[#00000029]">
       <div className="flex items-center gap-25">
-        <img src="/images/Torino.png" className=" mt-6" />
+        <img src="/images/Torino.png"  />
         <ul className="flex items-center gap-10">
           <li>
             <Link href="/" className="!text-[#28A745]">
@@ -40,7 +41,7 @@ function Header() {
         </button>
         |<button>ثبت نام</button>
       </div>
-      {!! showlogin && <SendOtpForm showlogin={showlogin} setShowLogin={setShowLogin}/>}
+      {!!showlogin && <AuthModal showlogin={showlogin} setShowLogin={setShowLogin}/>}
     </header>
   );
 }

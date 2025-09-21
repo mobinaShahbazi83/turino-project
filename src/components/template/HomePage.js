@@ -75,7 +75,7 @@ function HomePage() {
         برگذار کننده بهترین تور های داخلی و خارجی
       </p>
       <div className="flex justify-between items-center mt-8 border border-[#00000027] rounded-xl !px-2 !py-4 gap-2 w-[750px] h-[67px] m-auto ">
-        <div className="flex gap-0.5">
+        <div className="flex gap-0.5 mr-5">
           <FaLocationDot className="mt-2 mb-2" />
           <select className=" appearance-none">
             <option>مبدا</option>
@@ -129,18 +129,16 @@ function HomePage() {
             تاریخی را خریداری کنید.
           </p>
         </div>
-        <div>{/* <Slider/> */}</div>
+        <div>{<Slider/>}</div>
       </div>
       <div
-        className="flex flex-col md:flex-row justify-between items-center gap-6 mt-50  h-[100px] "
-        dir="rtl"
-      >
-        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+        className="flex flex-col md:flex-row justify-between items-center gap-6 mt-50  h-[100px] max-w-[1200px] m-auto  "
+        dir="rtl">
+        <div className="flex items-center gap-4  border-t border-[#00000029] mt-50">
           <img
             src="/images/prsent.png"
             className="w-[95px] h-[95px]"
-            alt="صرفه ترین قیمت"
-          />
+            alt="صرفه ترین قیمت"/>
           <div className="text-right">
             <h2 className="font-normal text-xl">بصرفه ترین قیمت</h2>
             <p className="font-light text-base ">
@@ -148,7 +146,7 @@ function HomePage() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+        <div className="flex items-center gap-4  border-t border-[#00000029] mt-50">
           <img
             src="/images/message.png"
             className="w-[95px] h-[95px]"
@@ -161,7 +159,7 @@ function HomePage() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-4 mt-60 border-t border-[#00000029]">
+        <div className="flex items-center gap-4  border-t border-[#00000029] mt-50">
           <img
             src="/images/hart.png"
             className="w-[95px] h-[95px]"

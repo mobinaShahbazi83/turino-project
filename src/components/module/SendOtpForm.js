@@ -1,37 +1,68 @@
-function SendOtpForm({showlogin,setShowLogin, mobile, setStep, setMobile }) {
-  const submitHandler = (event) => {
-    event.preventDefault()
-     console.log(event)
-  }
+"use client"
+import toast from "react-hot-toast";
+import { SendOtp } from "src/services/auth";
+import { useSendOtp } from "src/services/mutations";
+
+function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
+  // const { isPending, mutate } = useSendOtp();
+  const isValidMobile = (mobile) => {
+    const mobileRegex = /^09\d{9}$/;
+    return mobileRegex.test(mobile);
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    if (!isValidMobile(mobile)) {
+      toast.error("شماره تلفن نامعتبر است");
+      return;
+    }
+    if (isPending) return;
+
+    mutate(
+      { mobile },
+      {
+        onSuccess: (data) => {
+          toast.success(data?.data?.message);
+          toast(data?.data?.code);
+          setStep(2);
+        },
+        onError: (error) => {
+          toast.error(error.message);
+        },
+      }
+    );
+    const { response, error } = await SendOtp(mobile);
+    console.log({ response, error });
+  };
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-[3px]  bg-opacity-50 ">
-        
-      <form className="bg-white p-4   shadow-lg w-auto md:w-[571px] h-[362px] border border-[#28A745] rounded-xl" onSubmit={submitHandler}>
-        <span className="h-[12px] w-[12px] flex mr-130 text-[#D40000] " onClick={() => setShowLogin(null)}>x</span>
-           <h1 className="font-light text-3xl text-[#282828]  flex justify-center mt-7">
-          ورود به تورینو
-        </h1>
-        <div className="mt-15">
-          <label className="font-light text-base mr-6" htmlFor="input">
-            شماره موبایل خود را وارد کنید
-          </label>
-          <input
-            type="text"
-            id="input"
-            value={mobile}
-            onChange={e => setMobile(e.target.value)}
-            placeholder="4253***0919"
-            className="w-[491px] h-[54px] border border-[#00000040] rounded-lg p-[10px] mt-3 mr-5"
-          />
-        </div>
-        <div>
-          <button type="submit" className="w-[491px] h-[54px] border border-[#00000040] rounded-lg mt-8 mr-5 text-[#FFFFFF] bg-[#28A745]">
-            ارسال کد تایید
-          </button>
-        </div>
-      </form>
-      
-    </div>
+
+    <form onSubmit={submitHandler}>
+      <p className="font-light text-3xl text-[#282828]  flex justify-center mt-7">
+        ورود به تورینو
+      </p>
+      <div className="mt-15">
+        <label className="font-light text-base mr-6" htmlFor="input">
+          شماره موبایل خود را وارد کنید
+        </label>
+        <input
+          type="text"
+          id="input"
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+          placeholder="4253***0919"
+          className="w-[491px] h-[54px] border border-[#00000040] rounded-lg p-[10px] mt-3 mr-5"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          className="w-[491px] h-[54px] border border-[#00000040] rounded-lg mt-8 mr-5 text-[#FFFFFF] bg-[#28A745]">
+          ارسال کد تایید
+        </button>
+      </div>
+    </form>
+
   );
 }
 
