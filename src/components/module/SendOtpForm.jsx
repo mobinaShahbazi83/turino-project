@@ -38,6 +38,12 @@ function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
   return (
 
     <form onSubmit={submitHandler}>
+       <span
+          className="h-[12px] w-[12px] flex mr-130 text-[#D40000] "
+          onClick={() => setShowLogin(null)}
+        >
+          x
+        </span>
       <p className="font-light text-3xl text-[#282828]  flex justify-center mt-7">
         ورود به تورینو
       </p>
@@ -57,7 +63,7 @@ function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
       <div>
         <button
           type="submit"
-          className="w-[491px] h-[54px] border border-[#00000040] rounded-lg mt-8 mr-5 text-[#FFFFFF] bg-[#28A745]">
+          className="w-[491px] h-[54px] border  rounded-lg mt-8 mr-5 text-[#FFFFFF] bg-[#28A745]">
           ارسال کد تایید
         </button>
       </div>
