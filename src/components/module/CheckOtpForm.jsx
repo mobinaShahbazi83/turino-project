@@ -28,7 +28,7 @@ function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
       <div className="flex justify-end">
          <button
           className="inline-block text-[#171717] text-xl "
-          onClick={() => setStep(2)}>
+          onClick={() => setStep(1)}>
           <GoArrowLeft />
         </button>
       </div>
@@ -78,10 +78,3 @@ function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
 }
 
 export default CheckOtpForm
-//  <form onSubmit={submitHandler}>
-//       <GoArrowLeft className="w-[20px] h-[20px] mr-130" />
-//       <p className="font-medium text-[28px] flex justify-center mt-8">کد تایید را وارد کنید.</p>
-//       <span className="font-extralight text-base flex justify-center mt-3 ">کد تایید به شماره {mobile} ارسال شد.</span>
-//     <OtpInput value={otp} onChange={handleChange} numInputs={5} separator={<span>-</span>}  className="flex justify-center mt-3"/>;
-//     <button type="submit">ورود به تورینو</button>
-//     </form>

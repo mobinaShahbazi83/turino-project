@@ -102,9 +102,11 @@ function HomePage() {
         </div>
       </div>
       <h1 className="font-light  text-3xl mt-20 mr-30">همه تور ها</h1>
+     
       <div className="grid grid-cols-4 w-[1200px] m-auto ">
+       
         {tours.map((tour) => (
-          <Card key={tour.id} {...tour} />
+          <Card key={tour.id} {...tour}  />
         ))}
       </div>
       <div className="w-[1200px] h-[300px] rounded-lg mt-30 m-auto">

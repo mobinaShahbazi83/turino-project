@@ -13,7 +13,7 @@ function AuthModal({showlogin,setShowLogin}) {
   <div  className="bg-white p-4   shadow-lg w-auto md:w-[571px] h-[362px] border border-[#28A745] rounded-xl">
     
  {step === 1 && (
-        <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile} />
+        <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile}  setShowLogin={setShowLogin} />
       )}
       {step === 2 && <CheckOtpForm code={code} setCode={setCode}  mobile={mobile} setStep={setStep}/>}
   </div>

@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className=" !mt-40 border-t border-[#00000029] ">
+    <footer className="  border-t border-[#00000029] ">
       <div className="flex justify-between items-center  border-b border-[#00000029] ">
         <div className="flex  justify-between gap-25 !mb-10 ">
           <div>

@@ -40,7 +40,7 @@ function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
     <form onSubmit={submitHandler}>
        <span
           className="h-[12px] w-[12px] flex mr-130 text-[#D40000] "
-          onClick={() => setShowLogin(null)}
+          onClick={() => setShowLogin(false)}
         >
           x
         </span>

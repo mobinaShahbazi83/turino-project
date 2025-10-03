@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 function Card(props) {
   const { id, title, image, discription, price } = props;
   return (
+    <Link href={`/tour/1`}>
     <div className="w-[278.4375px] h-[277px] border border-[#0000001F] rounded-xl mt-5">
       <div>
-        
-        <img src={image} className="w-[278.4375px] h-[159px] " />
+        <img src={image} className="w-[278.4375px] h-[159px]" />
         <div className=" border-b !border-[#0000001F]">
           <h4 className="font-light text-xl mt-2 mr-1">{title}</h4>
           <div className="text-sm mt-2.5 text-[#282828B3]">{discription}</div>
@@ -19,6 +21,7 @@ function Card(props) {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
 
