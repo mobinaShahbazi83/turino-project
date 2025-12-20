@@ -6,22 +6,23 @@ import { BsFillCalendarDateFill } from "react-icons/bs";
 import { PiBusFill } from "react-icons/pi";
 import { HiMiniUsers } from "react-icons/hi2";
 import { AiFillSafetyCertificate } from "react-icons/ai";
-import Image from "next/image";
 
-function TourDetailsPage() {
+
+function TourDetailsPage({tour, id}) {
+  console.log(tour)
   return (
     <div className="lg:bg-[#F3F3F3]  h-auto py-20">
       <div className="w-[1100px] h-[360px] bg-[#FFFFFF] mr-40 border rounded-xl border-[#28A745]">
         <div className="flex gap-5">
-          <Image
+          <img
             width={335}
             height={200}
             alt="photo"
-            src="/images/arbil.png"
+            src={tour?.image}
             className="w-[335px] h-[200px] border rounded-xl border-[#00000029] mr-5 mt-5"
           />
           <div>
-            <h1 className="font-medium text-[25px] mt-5">اربیل</h1>
+            <h1 className="font-medium text-[25px] mt-5">{tour?.title}</h1>
             <p className="text-xl mt-5">5 روز و 4 شب</p>
 
             <div className="flex gap-20 mt-5 ">
@@ -41,7 +42,7 @@ function TourDetailsPage() {
             </div>
             <div className="flex  justify-between mt-10 gap-100 ">
               <div className="flex">
-                <span className="text-[#009ECA] ml-2">17,500,000</span>
+                <span className="text-[#009ECA] ml-2">{tour?.price}</span>
               <p className="text-sm text-[#7D7D7D] mt-0.5 font-extralight">تومان</p>
               </div>
               <button className="border rounded-lg bg-[#28A745] border-[#28A745] text-[#FFFFFF] w-[140px] h-[38px]">رزرو و خرید</button>

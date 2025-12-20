@@ -2,19 +2,43 @@
 import { useEffect, useState } from "react";
 import { OtpInput } from 'reactjs-otp-input';
 import { GoArrowLeft } from "react-icons/go";
+import {  useCheckOtp } from "src/services/auth";
+import { setCookie } from "@/utils/cookie";
+import toast from "react-hot-toast";
 
 
-function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
-   const [otp, setOtp] = useState('');
+function CheckOtpForm({code ,setCode  ,mobile ,setStep, setShowLogin}) {
+
     const [timeLeft, setTimeLeft] = useState(85);
-   const handleChange = (otp) => setOtp(otp);
-
-   const submitHandler = (event) => {
+  const { mutate } = useCheckOtp();
+   
+ 
+   const submitHandler =  (event) => {
      event.preventDefault();
+    
+     console.log({code, mobile})
+   
+      mutate(
+        {mobile, code},
+      {
+        onSuccess: (data) => {
+          console.log(data)
+          toast.success(data?.data?.message);
+            setCookie(data?.data);
+            setShowLogin(false)
+        },
+        onError: (error) => {
+          toast.error(error.message);
+        },
+      }
+    )
    }
+
+   
     const changeHandler = (otp) => {
     setCode(otp);
   };
+
    useEffect(() => {
     if (timeLeft > 0) {
       const timer = setTimeout(() => {
@@ -23,6 +47,8 @@ function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
       return () => clearTimeout(timer);
     }
   }, [timeLeft]);
+
+   
   return (
     <div>
       <div className="flex justify-end">
@@ -48,7 +74,7 @@ function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
               <OtpInput
                 value={code}
                 onChange={changeHandler}
-                numInputs={5}
+                numInputs={6}
                 inputStyle={{
                   border: "1px solid #00000040",
                   borderRadius: "4px",
@@ -64,11 +90,16 @@ function CheckOtpForm({code ,setCode  ,mobile ,setStep}) {
                 }}
               />
             </div>
+            
+             <div className="flex mt-15 gap-10 mr-20">
+              <button onClick={() => setStep(1)} className="w-[144px] h-[38px] border rounded-xl text-sm font-normal border-[#28A745] bg-[#28A745] text-[#FFFFFF]">تغییر شماره موبایل</button>
            <button
               type="submit"
-              className="block w-full bg-[#28A745]  border  rounded-lg mt-19 py-4 text-white">
+              className="w-[144px] h-[38px] border rounded-xl text-sm font-normal border-[#28A745] bg-[#28A745] text-[#FFFFFF]">
               ورود به تورینو
             </button>
+             </div>
+           
           </div>
         </form>
       </div>

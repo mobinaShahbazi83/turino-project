@@ -1,10 +1,10 @@
 "use client"
 import toast from "react-hot-toast";
-import { SendOtp } from "src/services/auth";
-import { useSendOtp } from "src/services/mutations";
+import {  useSendOtp } from "src/services/auth";
 
-function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
-  // const { isPending, mutate } = useSendOtp();
+
+function SendOtpForm({  setShowLogin, mobile, setStep, setMobile }) {
+   const { mutate } = useSendOtp();
   const isValidMobile = (mobile) => {
     const mobileRegex = /^09\d{9}$/;
     return mobileRegex.test(mobile);
@@ -12,14 +12,8 @@ function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    if (!isValidMobile(mobile)) {
-      toast.error("شماره تلفن نامعتبر است");
-      return;
-    }
-    if (isPending) return;
-
-    mutate(
-      { mobile },
+     mutate(
+      { mobile},
       {
         onSuccess: (data) => {
           toast.success(data?.data?.message);
@@ -30,9 +24,13 @@ function SendOtpForm({ showlogin, setShowLogin, mobile, setStep, setMobile }) {
           toast.error(error.message);
         },
       }
-    );
-    const { response, error } = await SendOtp(mobile);
-    console.log({ response, error });
+    )
+    if (!isValidMobile(mobile)) {
+      toast.error("شماره تلفن نامعتبر است");
+      return;
+    }
+    
+   
   };
 
   return (

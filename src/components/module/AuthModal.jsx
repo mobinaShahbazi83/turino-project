@@ -4,7 +4,7 @@ import SendOtpForm from "@/module/SendOtpForm";
 import { useState } from "react";
 
 function AuthModal({showlogin,setShowLogin}) {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   const [code, setCode] = useState("");
 
@@ -15,7 +15,7 @@ function AuthModal({showlogin,setShowLogin}) {
  {step === 1 && (
         <SendOtpForm setStep={setStep} mobile={mobile} setMobile={setMobile}  setShowLogin={setShowLogin} />
       )}
-      {step === 2 && <CheckOtpForm code={code} setCode={setCode}  mobile={mobile} setStep={setStep}/>}
+      {step === 2 && <CheckOtpForm code={code} setCode={setCode}  mobile={mobile} setStep={setStep} setShowLogin={setShowLogin}/>}
   </div>
      
     </div>
