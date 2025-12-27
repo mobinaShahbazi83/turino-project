@@ -23,6 +23,7 @@ function ProfilePage() {
   } = useForm();
 
   const emailHandler = (data) => {
+   
     mutate(data, {
       onSuccess: (data) => {
         setUserAccount(false);
@@ -50,7 +51,8 @@ function ProfilePage() {
     });
   };
      const bankaccountHandler = (data) => {
-     mutate(data, {
+      console.log(data)
+     mutate({payment:data}, {
       onSuccess: (data) => {
         setBankAccount(false);
         // refetch();
@@ -70,11 +72,10 @@ function ProfilePage() {
         national_code: profile.nationalcode || "",
         birthdate: profile.birthdate || "",
         gender: profile.gender || "",
-       "payment": {
-           "shaba_code": "string",
-           "debitCard_code": "string",
-           "accountIdentifier": "string"
-  }
+    
+           shaba_code: profile.payment.shaba_code ||"",
+           debitCard_code: profile.payment.debitCard_code || "",
+           accountIdentifier: profile.payment.accountIdentifier ||"",
       });
     }
   }, [profile, reset]);
@@ -281,7 +282,7 @@ function ProfilePage() {
             </div>
             </div>
             <div className={` ${bankaccount ? "hidden" : "block"}`}>
-            <div className="flex gap-142">
+            <div className="flex ">
               <h2 className="mt-3 mr-3">اطلاعات حساب بانکی</h2>
               <div className="flex mt-3 gap-1">
                 <HiMiniPencilSquare className="text-[#009ECA] mt-" />
@@ -294,7 +295,7 @@ function ProfilePage() {
                 </button>
               </div>
             </div>
-            <div className="flex gap-100 mt-7">
+            <div className="flex gap-50 mt-7">
               <div className="flex gap-20 mr-3">
                 <h3 className="text-sm font-normal">شماره شبا</h3>
                 <p>

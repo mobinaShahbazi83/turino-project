@@ -20,6 +20,13 @@ const useGetUserInfo = () => {
    })
  }
  const  searchTurs = query => api.get(`/products/?query=${query}`)
+ 
 
-
-export {useGetUserInfo, searchTurs, useGetTours}
+ const useGetTransactions = () => {
+   const queryFn = () => api.get("/user/transactions");
+    const queryKey = ["transactions"];
+     return useQuery({
+    queryFn, queryKey 
+   })
+ }
+export {useGetUserInfo, searchTurs, useGetTours, useGetTransactions}

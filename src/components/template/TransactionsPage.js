@@ -1,6 +1,14 @@
+"use client"
 import React from 'react'
+import { useGetTransactions } from 'src/services/queries'
 
 function TransactionsPage() {
+
+   const {data} = useGetTransactions()
+   console.log(data);
+    
+   const transactions = data?.data;
+
   return (
    <div className="w-[872px] h-[245px] border border-[#00000033] bg-[#FFFFFF] rounded-lg">
     <table className="w-full ">
@@ -13,13 +21,21 @@ function TransactionsPage() {
         </tr>
       </thead>
       <tbody className="text-center h-auto">
-        <tr className="h-14" >
+       {transactions?.length ? (
+        transactions?.map((transaction) => (
+         <tr className="h-14" key={transaction.id}>
         <td className="font-extralight text-sm">1402/10/12 - 14:24</td>
         <td className="font-extralight text-sm">12,000,000</td>
         <td className="font-extralight text-sm">ثبت نام در تور گردشگری</td>
         <td className="font-extralight text-sm">سفارش 12054902</td>
       </tr>
-      
+        ))
+        
+       ) : (
+<tr>
+        <td className="text-center h-28" colSpan="5"> هیچ تراکنشی وجود ندارد</td>
+       </tr>
+       )}
       </tbody>
     </table>
     </div>
