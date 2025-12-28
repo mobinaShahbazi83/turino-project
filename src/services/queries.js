@@ -29,4 +29,12 @@ const useGetUserInfo = () => {
     queryFn, queryKey 
    })
  }
-export {useGetUserInfo, searchTurs, useGetTours, useGetTransactions}
+
+ const useGetBasket = () => {
+  const queryFn = () => api.get("/basket");
+   const queryKey = ["basket"];
+    return useQuery({
+    queryFn, queryKey 
+   })
+ }
+export {useGetUserInfo, searchTurs, useGetTours, useGetTransactions, useGetBasket}

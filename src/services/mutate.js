@@ -17,6 +17,20 @@ const useProfileUpdate = () => {
       });
 }
 
+  const useAddBasket = () => {
+    const queryClient = useQueryClient();
+    const mutationFn = (id) => api.put(`/basket/${id}`);
+    return useMutation({ mutationFn,
+        onSuccess: (response) => {
+                console.log(response)
+                queryClient.invalidateQueries(['basket']);
+               
+            },
+             onError: (error) => {
+                console.log(error)
+             }
+      });
+    
+  }
 
-
-export {useProfileUpdate}
+export {useProfileUpdate, useAddBasket}

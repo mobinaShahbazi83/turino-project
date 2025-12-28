@@ -1,3 +1,4 @@
+"use client"
 import { ImUser } from "react-icons/im";
 import { ImPaste } from "react-icons/im";
 import { FaMedal } from "react-icons/fa";
@@ -6,9 +7,28 @@ import { BsFillCalendarDateFill } from "react-icons/bs";
 import { PiBusFill } from "react-icons/pi";
 import { HiMiniUsers } from "react-icons/hi2";
 import { AiFillSafetyCertificate } from "react-icons/ai";
+import { useAddBasket } from "src/services/mutate";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 
 function TourDetailsPage({tour, id}) {
+  const {mutate} = useAddBasket()
+
+  const router = useRouter()
+
+  const basketHandler = () => {
+    mutate(tour.id, {
+    onSuccess : (data) => {
+        router.push("/basket")
+         toast.success(data.data.message)
+
+    }, onError : () => {
+       toast.error("مشکلی پیش آمده است!")
+    }
+    })
+    
+  }
   console.log(tour)
   return (
     <div className="lg:bg-[#F3F3F3]  h-auto py-20">
@@ -45,7 +65,7 @@ function TourDetailsPage({tour, id}) {
                 <span className="text-[#009ECA] ml-2">{tour?.price}</span>
               <p className="text-sm text-[#7D7D7D] mt-0.5 font-extralight">تومان</p>
               </div>
-              <button className="border rounded-lg bg-[#28A745] border-[#28A745] text-[#FFFFFF] w-[140px] h-[38px]">رزرو و خرید</button>
+              <button onClick={basketHandler} className="border rounded-lg bg-[#28A745] border-[#28A745] text-[#FFFFFF] w-[140px] h-[38px]">رزرو و خرید</button>
             </div>
           </div>
         </div>
