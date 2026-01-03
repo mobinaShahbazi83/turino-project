@@ -27,8 +27,7 @@ function ProfilePage() {
     mutate(data, {
       onSuccess: (data) => {
         setUserAccount(false);
-        // refetch();
-        console.log(data);
+         console.log(data);
       },
       onError: (error) => {
         console.log(error);

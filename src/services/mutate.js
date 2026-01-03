@@ -32,5 +32,20 @@ const useProfileUpdate = () => {
       });
     
   }
+  const useCreateOrder = () => {
+    const queryClient = useQueryClient();
+      const mutationFn = (data) => api.post("/order", data);
+    return useMutation({ mutationFn,
+        onSuccess: (response) => {
+                console.log(response)
+                queryClient.invalidateQueries(['order']);
+               
+            },
+             onError: (error) => {
+                console.log(error)
+             }
+      });
 
-export {useProfileUpdate, useAddBasket}
+  }
+
+export {useProfileUpdate, useAddBasket, useCreateOrder}
